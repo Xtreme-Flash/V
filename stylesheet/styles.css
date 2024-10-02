@@ -1,10 +1,10 @@
 /* Global Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    color: #333;
+    color: #e0e0e0; /* Light grey for text */
     margin: 0;
     padding: 0;
-    background-color: #fafafa;
+    background-color: #1b1b1b; /* Dark background */
     line-height: 1.6;
 }
 
@@ -18,7 +18,7 @@ body {
 
 /* Header */
 header {
-    background-color: #fff;
+    background-color: #2d2d2d; /* Slightly lighter black */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px 0;
     position: sticky;
@@ -30,7 +30,7 @@ header h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     text-align: center;
-    color: #444;
+    color: #e0e0e0; /* Light grey */
     margin: 0;
 }
 
@@ -48,18 +48,18 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #e0e0e0;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #ff6f61;
+    color: #ff5c5c; /* Accent color remains or adjust as needed */
 }
 
 /* About Section */
 #about {
-    background-color: #fff;
+    background-color: #2d2d2d;
     padding: 80px 0;
     text-align: center;
 }
@@ -67,50 +67,116 @@ nav ul li a:hover {
 #about h2 {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
-    color: #444;
+    color: #e0e0e0;
 }
 
 #about p {
     font-size: 1.2rem;
     max-width: 800px;
     margin: 0 auto;
-    color: #666;
+    color: #c0c0c0; /* Slightly darker grey for body text */
 }
 
-/* Gallery Section */
-#gallery {
-    padding: 80px 0;
-    background-color: #f9f9f9;
-    text-align: center;
+/* Profile Picture Container */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px; /* Space between the profile picture and text */
 }
 
-#gallery h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    color: #444;
-    margin-bottom: 40px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.grid img {
-    width: 100%;
-    border-radius: 8px;
+.profile-pic {
+    width: 150px; /* Adjust the size */
+    height: 150px; /* Ensure it's a perfect circle */
+    border-radius: 50%;
+    border: 4px solid #e0e0e0; /* Light grey border */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.grid img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+/* Hover Effect */
+.profile-pic:hover {
+    transform: scale(1.1); /* Slight zoom-in on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Enhance shadow on hover */
 }
+
+/* Gallery Preview Section */
+#gallery-preview {
+    text-align: center;
+    padding: 80px 20px;
+    background: url('default-background.jpg') no-repeat center center/cover; /* Fallback image */
+    position: relative;
+    overflow: hidden;
+    transition: background-image 0.5s ease-in-out; /* Smooth transition for background */
+}
+
+/* Dark overlay for better readability */
+#gallery-preview::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Transparent black overlay */
+    z-index: 1;
+}
+
+#gallery-preview h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #e0e0e0;
+}
+
+/* Ensure text and buttons are visible above background image */
+#gallery-preview h2,
+#gallery-preview .view-more-button {
+    position: relative;
+    z-index: 2;
+}
+
+/* Gallery Grid Styling */
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between images */
+    justify-content: center; /* Center-align the grid */
+    margin-top: 30px;
+}
+
+.gallery-grid img {
+    width: 200px; /* Control image width */
+    height: 200px; /* Control image height */
+    object-fit: cover; /* Cover the image area */
+    border-radius: 12px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    opacity: 0.8; /* Slight opacity change on hover */
+}
+
+/* View More Button */
+.view-more-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.view-more-button:hover {
+    background-color: #555; /* Slightly lighter on hover */
+}
+
 
 /* Contact Section */
 #contact {
-    background-color: #fff;
+    background-color: #2d2d2d;
     padding: 80px 0;
     text-align: center;
 }
@@ -118,18 +184,46 @@ nav ul li a:hover {
 #contact h2 {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
-    color: #444;
+    color: #e0e0e0;
 }
 
 #contact p {
     font-size: 1.1rem;
-    color: #666;
+    color: #c0c0c0;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icon {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 30px;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon.youtube:hover {
+    color: #FF0000; /* YouTube Red */
+}
+
+.social-icon.instagram:hover {
+    color: #C13584; /* Instagram Purple */
+}
+
+.social-icon.pinterest:hover {
+    color: #E60023; /* Pinterest Red */
+}
+
+.social-icon.discord:hover {
+    color: #7289DA; /* Discord Blue */
 }
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #1b1b1b;
+    color: #e0e0e0;
     padding: 20px 0;
     text-align: center;
 }

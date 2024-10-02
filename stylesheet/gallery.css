@@ -1,0 +1,112 @@
+/* gallery-styles.css */
+
+/* Global Styles */
+body, html {
+    font-family: 'Poppins', sans-serif;
+    background-color: #2e2e2e; /* Dark grey background */
+    margin: 0;
+    padding: 0;
+    color: #f1f1f1; /* Light text color */
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333; /* Dark background for header */
+    color: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* Back Button Styles */
+.back-button {
+    display: flex; /* Aligns icon and text side-by-side */
+    align-items: center;
+    font-family: 'Poppins', sans-serif; /* Matches website theme font */
+    font-weight: 400; /* Set to normal weight */
+    font-size: 14px; /* Smaller text size */
+    padding: 6px 12px; /* Adjusted padding for a smaller button */
+    color: #999; /* Muted color to match theme */
+    background-color: transparent; /* Transparent background */
+    border: none; /* Remove border */
+    border-radius: 30px; /* Rounded edges */
+    text-decoration: none; /* Remove text underline */
+    position: absolute; /* Fixed position */
+    left: 20px; /* Position on the left side */
+    top: 20px; /* Position below the top */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    opacity: 0.8; /* Initial opacity */
+}
+
+/* Icon inside the Button */
+.back-button i {
+    margin-right: 6px; /* Space between icon and text */
+    font-size: 18px; /* Icon size */
+    color: #999; /* Set icon color to match text */
+    transition: all 0.3s ease; /* Smooth transition for hover */
+    opacity: 0.8; /* Initial icon opacity */
+}
+
+/* Hover Effect */
+.back-button:hover {
+    color: #fff; /* Bright text on hover */
+    opacity: 1; /* Full opacity on hover */
+}
+
+.back-button:hover i {
+    color: #fff; /* Bright icon on hover */
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Optional: Active State for Click */
+.back-button:active {
+    opacity: 0.6; /* Slightly lower opacity on click for feedback */
+}
+
+
+/* Full Gallery Section */
+#full-gallery {
+    padding: 40px 10px;
+}
+
+/* Pinterest-Style Grid */
+.grid {
+    column-count: 3; /* Number of columns */
+    column-gap: 20px; /* Gap between columns */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid img {
+    width: 100%;
+    margin-bottom: 20px; /* Gap between images */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    break-inside: avoid; /* Prevent images from breaking */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid img:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .grid {
+        column-count: 2; /* Reduce to 2 columns */
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        column-count: 1; /* Single column on small screens */
+    }
+}
+\
