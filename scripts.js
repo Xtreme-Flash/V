@@ -1,50 +1,176 @@
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+    // GSAP animations
+    gsap.from("header", {
+        y: -100,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    });
+
+    gsap.from("#about", {
+        scrollTrigger: "#about",
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    });
+
+    gsap.from("#gallery-preview", {
+        scrollTrigger: "#gallery-preview",
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: "power3.out"
+    });
+
+    gsap.from(".gallery-grid img", {
+        scrollTrigger: ".gallery-grid img",
+        scale: 0.8,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.6,
+        ease: "back.out(1.7)"
+    });
+
+    gsap.from("#contact", {
+        scrollTrigger: "#contact",
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    });
+
+    gsap.from(".social-icon", {
+        scrollTrigger: ".social-icon",
+        scale: 0.5,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.6,
+        ease: "elastic.out(1, 0.5)"
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
-});
 
-const viewMoreButton = document.querySelector('.view-more-button');
+    // Particle effect initialization
+    particlesJS("particles-js", {
+        "particles": {
+          "number": {
+            "value": 50,
+            "density": {
+              "enable": true,
+              "value_area": 1000
+            }
+          },
+          "color": {
+            "value": "#ffdd00" // Yellow color to mimic fireflies
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            }
+          },
+          "opacity": {
+            "value": 0.8,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 1,
+              "opacity_min": 0.3,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 2,
+              "size_min": 1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": false
+          },
+          "move": {
+            "enable": true,
+            "speed": 1,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": true,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": false
+            },
+            "onclick": {
+              "enable": false
+            },
+            "resize": true
+          }
+        },
+        "retina_detect": true
+      });
+      
 
-viewMoreButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.body.style.opacity = '0';
-    setTimeout(function() {
-        window.location.href = viewMoreButton.getAttribute('href');
-    }, 500); // Adjust the delay to match your animation timing
-});
-
-
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const vines = document.querySelector('.vines');
-    
-    // Add a slight parallax effect by changing the vine's translateY based on scroll position
-    vines.style.transform = translateY(${scrolled * 0.3}px);
-});
- 
-// Select all images in the gallery preview section
-const previewImages = document.querySelectorAll('.gallery-grid img');
-
-// Select the gallery preview section itself
-const gallerySection = document.getElementById('gallery-preview');
-
-// Add hover event listeners to each preview image
-previewImages.forEach(image => {
-    image.addEventListener('mouseenter', function() {
-        // Get the src of the hovered image
-        const imageUrl = this.src;
-
-        // Change the background image of the gallery preview section
-        gallerySection.style.backgroundImage = url(${imageUrl});
+    // Set opacity to 1 when scrolling to the top
+    window.addEventListener('scroll', function() {
+        if (window.scrollY === 0) {
+            document.getElementById("particles-js").style.opacity = 1;
+        } else {
+            document.getElementById("particles-js").style.opacity = 0.5; // Adjust this value if needed
+        }
     });
-
-    image.addEventListener('mouseleave', function() {
-        // Optionally, revert to the original background or keep the last hovered image
-        gallerySection.style.backgroundImage = url('default-background.jpg'); // Replace with default if needed
-    });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Create fireflies dynamically
+    const firefliesContainer = document.getElementById('fireflies-container');
+    const numFireflies = 50;
+  
+    for (let i = 0; i < numFireflies; i++) {
+      const firefly = document.createElement('div');
+      firefly.classList.add('firefly');
+      firefly.style.top = Math.random() * 100 + 'vh';
+      firefly.style.left = Math.random() * 100 + 'vw';
+      firefliesContainer.appendChild(firefly);
+    }
+  
+    // Animate fireflies using GSAP
+    gsap.utils.toArray('.firefly').forEach(firefly => {
+      gsap.to(firefly, {
+        x: 'random(-100, 100)',
+        y: 'random(-100, 100)',
+        duration: 'random(5, 10)',
+        repeat: -1,
+        yoyo: true,
+        ease: 'power1.inOut',
+        opacity: 'random(0.3, 0.8)'
+      });
+    });
+  });
+  
