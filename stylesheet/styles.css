@@ -134,7 +134,7 @@ nav ul li a:hover {
 
 /* Hover Effect */
 .profile-pic:hover {
-    transform: scale(1.1); /* Slight zoom-in on hover */
+    transform: scale(1.05); /* Slight zoom-in on hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Enhance shadow on hover */
 }
 
@@ -142,7 +142,7 @@ nav ul li a:hover {
 #gallery-preview {
     text-align: center;
     padding: 80px 20px;
-    background: url('/assets/sketch\ 31.png') no-repeat center center/cover; /* Fallback image */
+    background: url('') no-repeat center center/cover; /* Fallback image */
     position: relative;
     overflow: hidden;
     transition: background-image 0.5s ease-in-out; /* Smooth transition for background */
