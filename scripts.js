@@ -173,4 +173,35 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Customize your own words here
+    const words = [
+        "V", "vid", "something", "Passionatly Curious", 
+        "Curious", "Astranomy", "Vidhya", "vixnxm",
+        "clown", "peace", "hey", "yoo",
+        "artist", "✨", "👀", "jadevine", "enticing"
+    ];
+
+    const textContainer = document.getElementById('random-text-container');
+    const numWords = 20; // Number of words to generate
+
+    for (let i = 0; i < numWords; i++) {
+        const word = document.createElement('span');
+        word.classList.add('random-text');
+        
+        // Use the words you defined above
+        word.textContent = words[i % words.length]; // Loops through the list if numWords > words.length
+        
+        // Random positioning
+        word.style.top = Math.random() * 100 + 'vh';
+        word.style.left = Math.random() * 100 + 'vw';
+
+        // Optional: Add slight rotation for randomness
+        word.style.transform = `rotate(${Math.random() * 30 - 15}deg)`;
+        textContainer.appendChild(word);
+    }
+});
+
+
   
