@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "V", "vid", "something", "Passionatly Curious", 
         "Curious", "Astranomy", "Vidhya", "vixnxm",
         "clown", "peace", "hey", "yoo",
-        "artist", "✨", "👀", "jadevine", "enticing"
+        "artist", "✨", "👀", "jadevine", "enticing", "herArts<3", "CuriousCalmingEyes"
     ];
 
     const textContainer = document.getElementById('random-text-container');
