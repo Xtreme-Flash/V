@@ -205,5 +205,40 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  let audio = document.getElementById("music-player");
+  let isPlaying = false;
+  let songs = [
+      "assets/music/Neon Genesis Evangelion  Fly me to the moon.mp3",
+      "assets/song2.mp3",
+      "assets/song3.mp3"
+  ];
+  let currentSongIndex = 0;
+
+  function toggleMusic() {
+      if (!isPlaying) {
+          audio.src = songs[currentSongIndex]; // Set song source dynamically
+          audio.volume = 0.2; // Distant music effect
+          audio.play();
+          isPlaying = true;
+          document.querySelector(".music-button").innerText = "⏸ Stop Music";
+      } else {
+          audio.pause();
+          isPlaying = false;
+          document.querySelector(".music-button").innerText = "🎶 Play Music";
+      }
+  }
+
+  // Auto-play next song when the current one ends
+  audio.addEventListener("ended", function () {
+      currentSongIndex = (currentSongIndex + 1) % songs.length; // Loop back to first song
+      audio.src = songs[currentSongIndex];
+      audio.play();
+  });
+
+  document.querySelector(".music-button").addEventListener("click", toggleMusic);
+});
+
+
 
   
