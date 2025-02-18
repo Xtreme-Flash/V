@@ -6,7 +6,7 @@ body {
     padding: 0;
     background-color: #1b1b1b; /* Dark background */
     line-height: 1.6;
-    background-image: url('/assets/cottagecore.jpg'); /* Replace with your image path */
+    background-image: url('../assets/cottagecore.jpg'); /* Replace with your image path */
     background-size: cover; /* Ensures the image covers the entire section */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
@@ -16,7 +16,7 @@ body {
 }
 
 .music-button {
-    position: fixed;
+    position:absolute;
     top: 20px;
     right: 20px;
     background: #ddd;
